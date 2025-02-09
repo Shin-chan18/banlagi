@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Web Trêu Bạn</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin-top: 100px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        background-color: red;
+        color: white;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: darkred;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎵 Nghe thử nè! 😆</h1>
+    <button onclick="toggleAudio()">Bật / Tắt âm thanh</button>
+
+    <audio id="prankAudio" loop>
+      <source src="choban.mp3" type="audio/mpeg" />
+      Trình duyệt của bạn không hỗ trợ thẻ audio.
+    </audio>
+
+    <script>
+      var audio = document.getElementById("prankAudio");
+
+      // Tự động phát khi mở trang (Một số trình duyệt có thể chặn tự động phát)
+      window.onload = function () {
+        audio
+          .play()
+          .catch((error) => console.log("Trình duyệt đã chặn tự động phát."));
+      };
+
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      }
+    </script>
+  </body>
+</html>
